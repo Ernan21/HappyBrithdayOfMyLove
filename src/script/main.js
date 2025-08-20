@@ -59,23 +59,4 @@ function criarCoracao() {
   document.body.appendChild(heart);
   setTimeout(() => heart.remove(), 6000);
 }
-setInterval(criarCoracao, 500);
-/*
-<div class="container">
-    <h2>2025</h2>
-</div>
-<div class="container">
-    <h2>2024</h2>
-</div>
-<div class="container">
-    <h2>2023</h2>
-</div>
-<div class="container">
-    <h2>2022</h2>
-</div>
-<div class="container">
-    <h2>2021</h2>
-</div>
-<div class="container">
-    <h2>2020</h2>
-</div>*/
+setInterval(criarCoracao, 100);

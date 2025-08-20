@@ -16,7 +16,7 @@ body {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     line-height: 1.7;
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 .container audio{
@@ -49,7 +49,7 @@ h3 {
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 12px;
+    gap: 10px;
 }
 
 fieldset {
@@ -66,9 +66,15 @@ legend {
     text-align: left;
 }
 
-.gallery img,
-.gallery video {
+.gallery img {
     width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+.gallery video{
+    width: 100%;
+    height: 100%;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease;
@@ -92,6 +98,18 @@ legend {
     opacity: 0.8;
 }
 
+.fixImg{
+    position: fixed;
+    max-width: 850px;
+    z-index: 2;
+    & .Img_right{   transform: rotate(0.015turn) translate(20%, 0%);    }
+
+    & .Img_left{
+        left: 0px;
+        top: 50%;
+    }
+}
+
 @keyframes fall {
     to {
         transform: translateY(100vh);
@@ -100,15 +118,48 @@ legend {
 }
 
 h1 {
-    animation: pulse 2s infinite alternate;
+    animation: pulseCartoon 10s infinite ease-in-out;
+    transform-style: preserve-3d;
+    display: inline-block;
+    perspective: 1000px;
 }
 
-@keyframes pulse {
-    from {
-        transform: scale(1);
+@keyframes pulseCartoon {
+    0%   { transform: scale(1) rotate3d(0, 0, 0, 0deg); }
+    10%  { transform: scale(1.05) rotate3d(1, 0, 0, 2deg); }
+    20%  { transform: scale(1.1) rotate3d(0, 1, 0, -2deg); }
+    30%  { transform: scale(1.15) rotate3d(1, 1, 0, 3deg); }
+    40%  { transform: scale(1.1) rotate3d(0, 1, 0, -1deg); }
+    50%  { transform: scale(1.2) rotate3d(1, 0, 1, 4deg); }
+    60%  { transform: scale(1.1) rotate3d(0, 1, 0, -2deg); }
+    70%  { transform: scale(1.15) rotate3d(1, 0, 0, 2deg); }
+    80%  { transform: scale(1.08) rotate3d(0, 0, 1, -1deg); }
+    90%  { transform: scale(1.03) rotate3d(1, 1, 0, 1deg); }
+    100% { transform: scale(1) rotate3d(0, 0, 0, 0deg); }
+}
+
+
+
+@media (max-width: 600px) {
+    .container {
+        margin: 20px;
+        padding: 20px;
     }
 
-    to {
-        transform: scale(1.05);
+    .fixImg{
+        visibility: hidden;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    #tempo {
+        font-size: 1rem;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 8px;
     }
 }
