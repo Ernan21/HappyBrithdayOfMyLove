@@ -36,6 +36,3 @@ Este repositório está disponível de forma pública. Sinta-se livre para usar,
 | Contato e licença | Interação e liberação de uso |
 
 ---
-
-Se quiser, posso incluir também badges (como GitHub Pages, licença, HTML/CSS/JS), um screenshot da página ou sugestões visuais específicas. É só dizer!
-::contentReference[oaicite:5]{index=5}
